@@ -46,7 +46,7 @@ public class OrdemServico {
 	@ManyToOne
 	@JoinColumn(name = "idcli", nullable = false)
 	private Cliente cliente;
-
+	
 	// Getters and setters
 
 	public Long getOs() {
