@@ -10,10 +10,10 @@ import br.com.alelvis.sistemAlevis.model.Usuario;
 public class UsuarioService {
 
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UsuarioRepository repository;
 
 	public Usuario logar(String login, String senha) {
-		return usuarioRepository.findByLoginAndSenha(login, senha);
+		return repository.findByLoginAndSenha(login, senha);
 	}
 
 }
