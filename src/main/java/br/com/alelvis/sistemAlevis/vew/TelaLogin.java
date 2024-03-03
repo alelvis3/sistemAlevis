@@ -19,7 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.com.alelvis.sistemAlevis.Service.UsuarioService;
-import br.com.alelvis.sistemAlevis.model.Usuario;
+import br.com.alelvis.sistemAlevis.dto.LoginDTO;
+import br.com.alelvis.sistemAlevis.dto.UsuarioDTO;
 
 @Component
 public class TelaLogin extends JFrame {
@@ -37,8 +38,6 @@ public class TelaLogin extends JFrame {
 	private JPasswordField txtSenha;
 	private JButton btnLogin;
 	private JLabel lblStatus;
-
-	
 
 	/**
 	 * Create the frame.
@@ -94,7 +93,8 @@ public class TelaLogin extends JFrame {
 		String login = txtUsuario.getText();
 		String senha = new String(txtSenha.getPassword());
 
-		Usuario usuario = usuarioService.logar(login, senha);
+		LoginDTO loginDTO = new LoginDTO(login, senha);
+		UsuarioDTO usuario = usuarioService.logar(loginDTO);
 
 		if (usuario != null) {
 			// Lógica para abrir a TelaPrincipal
@@ -102,7 +102,7 @@ public class TelaLogin extends JFrame {
 			principal.setVisible(true);
 
 			// Lógica para configurar a TelaPrincipal com base no perfil
-			switch (usuario.getPerfil()) {
+			switch (usuario.perfil()) {
 			case ADMINISTRADOR:
 				TelaPrincipal.mnRelatrio.setEnabled(true);
 				TelaPrincipal.mntmUsurios.setEnabled(true);
@@ -113,7 +113,7 @@ public class TelaLogin extends JFrame {
 				break;
 			}
 
-			TelaPrincipal.lblUsuario.setText("<html>" + usuario.getNome() + "</html>");
+			TelaPrincipal.lblUsuario.setText("<html>" + usuario.nome() + "</html>");
 
 			this.dispose();
 		} else {

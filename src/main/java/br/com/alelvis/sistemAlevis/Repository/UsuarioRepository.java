@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import br.com.alelvis.sistemAlevis.model.Usuario;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
-	
-	Usuario findByLoginAndSenha(String login, String senha);
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+
+	Usuario findByLogin(String login);
 
 }

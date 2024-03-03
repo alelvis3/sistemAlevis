@@ -1,5 +1,5 @@
 package br.com.alelvis.sistemAlevis.dto;
 
-public record UsuarioDTO() {
+import br.com.alelvis.sistemAlevis.model.Perfil;
 
-}
+public record UsuarioDTO(Long id, String nome, Perfil perfil) {}
