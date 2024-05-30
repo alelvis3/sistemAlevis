@@ -33,6 +33,10 @@ public class Usuario {
 	
 	// Getters and setters
 
+	public Usuario(Long id, String nome, Perfil perfil) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -94,7 +94,7 @@ public class TelaLogin extends JFrame {
 		String senha = new String(txtSenha.getPassword());
 
 		LoginDTO loginDTO = new LoginDTO(login, senha);
-		UsuarioDTO usuario = usuarioService.logar(loginDTO);
+		UsuarioDTO usuario = usuarioService.logar(loginDTO);		
 
 		if (usuario != null) {
 			// Lógica para abrir a TelaPrincipal
